@@ -123,8 +123,12 @@ const clearBookmarks = function () {
 };
 // clearBookmarks();
 
+const newFeature = function () {
+  console.log('welcome');
+};
 export const uploadRecipe = async function (newRecipe) {
   try {
+    newFeature();
     const ingredients = Object.entries(newRecipe)
       .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
       .map(ing => {
