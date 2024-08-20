@@ -4,7 +4,7 @@
   "description": "Recipe app",
   "default": "index.html",
   "scripts": {
-    "start": "parcel build index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Dagim Ameha",
