@@ -1,7 +1,8 @@
 // ✅ Use ES module imports everywhere
 import View from './View.js';
 import icons from 'url:../../img/icons.svg';
-import { Fraction } from 'fractional'; // ✅ FIXED
+import * as fractional from 'fractional';
+const Fraction = fractional.Fraction; // ✅ FIXED
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
