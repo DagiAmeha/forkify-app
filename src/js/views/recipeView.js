@@ -1,8 +1,8 @@
 // ✅ Use ES module imports everywhere
 import View from './View.js';
 import icons from 'url:../../img/icons.svg';
-import * as fractional from 'fractional';
-const Fraction = fractional.Fraction; // ✅ FIXED
+import Fraction from 'fraction.js';
+
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -98,20 +98,21 @@ class RecipeView extends View {
     `;
   }
 
-  _generateMarkupIngredient(ing) {
-    return `
-      <li class="recipe__ingredient">
-        <svg class="recipe__icon"><use href="${icons}#icon-check"></use></svg>
-        // <div class="recipe__quantity">
-        //   ${ing.quantity ? new Fraction(ing.quantity).toString() : ''}
-        // </div>
-        <div class="recipe__description">
-          <span class="recipe__unit">${ing.unit}</span>
-          ${ing.description}
-        </div>
-      </li>
-    `;
-  }
+ _generateMarkupIngredient(ing) {
+  return `
+    <li class="recipe__ingredient">
+      <svg class="recipe__icon"><use href="${icons}#icon-check"></use></svg>
+      <div class="recipe__quantity">
+        ${ing.quantity ? new Fraction(ing.quantity).toFraction(true) : ''}
+      </div>
+      <div class="recipe__description">
+        <span class="recipe__unit">${ing.unit}</span>
+        ${ing.description}
+      </div>
+    </li>
+  `;
+}
+
 }
 
 export default new RecipeView();
